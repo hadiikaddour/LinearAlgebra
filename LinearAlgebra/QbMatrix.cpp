@@ -65,6 +65,12 @@ int QbMatrix<T>::getColsNum() {
 	return n_cols;
 }
 //operrators 
+// =
+template<class T>
+void QbMatrix<T>::operator=(const QbMatrix& mat) {
+	for (int i = 0; i < mat.n_elements; i++)
+		matrixDataArry[i] = mat.matrixDataArry[i];
+}
 	//+
 
 template<class T>
@@ -197,13 +203,13 @@ QbMatrix<U> operator*(const QbMatrix<U>& leftSideMatrix, const QbMatrix<U>& Righ
 		}
 		QbMatrix<U> result(leftMatrixRowsNum, rightMatrixColsNum, tempResult);
 		delete[] tempResult;
-		return new QbMatrix<U>(leftMatrixRowsNum, rightMatrixColsNum, result);
+		return result;
 
 	}
 	else
 	{
 		QbMatrix<U> result(1, 1);
-		return std::move(result);
+		return result;
 	}
 }
 

@@ -14,8 +14,10 @@ public:
 	int getRowsNum();
 	int getColsNum();
 //operrators
-	//+
+	//=
+	void operator=(const QbMatrix<T>& mat);
 	bool operator==(const QbMatrix<T>& rightSideMatrix);
+	//+
 	template<class U> friend QbMatrix<U> operator+(const QbMatrix<U>& leftSideMatrix, const QbMatrix<U>& RightSideMatrix);
 	template<class U> friend QbMatrix<U> operator+(const U& leftSideScalor, const QbMatrix<U>& RightSideMatrix);
 	template<class U> friend QbMatrix<U> operator+(const QbMatrix<U>& leftSideMatrix, const U& rightSideScalor);
